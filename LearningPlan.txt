@@ -1,0 +1,9 @@
+100 Days of Code Challenge Plan:
+1. Technologies to learn:
+   > React
+   > ASP.Net
+   > MSSqlServer
+
+2. Projects to do:
+   > Self website
+   > Calendar
