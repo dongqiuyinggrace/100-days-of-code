@@ -7,3 +7,7 @@
              In the future, I still want to try NodeJs for back-end development.
    
 ## Day1: January 12, 2021 (The first day of coding challenge)
+  
+  **Today's progress**: Structured the application slient side, decided to copy the basic function of windows calendar.
+  
+  **Thoughts**: I made a mistake when pushing my code to github, as I forgot to pull first. Obviously I am still not familiar with git basic functions, I will take 2 hour in git                 learning.
