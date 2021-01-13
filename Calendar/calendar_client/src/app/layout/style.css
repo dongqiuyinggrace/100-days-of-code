@@ -1,0 +1,17 @@
+.calendar {
+    display: flex;
+    flex-direction: row;
+}
+
+.calendar-sidebar {
+    background-color: #3268a8;
+    height: 100vh;
+    width: 30%;
+}
+
+.calendar-board {
+    background-color:#fff;
+    height: 100vh;
+    width: 100%;
+}
+
