@@ -5,27 +5,14 @@ import Square from './Square';
 
 const Board = ({squares, click}) => {
 
-    const renderSquare = (i) => {
-        return <Square value={squares[i]}  clickSquare={() => click(i)}/>
-    }
-
+   
     return (
         <div id="board">
-            <div className="board-row">
-                {renderSquare(0)}
-                {renderSquare(1)}
-                {renderSquare(2)}
-            </div>
-            <div className="board-row">
-                {renderSquare(3)}
-                {renderSquare(4)}
-                {renderSquare(5)}
-            </div>
-            <div className="board-row">
-                {renderSquare(6)}
-                {renderSquare(7)}
-                {renderSquare(8)}
-            </div>
+            {[0, 1, 2].map(row => (
+                <div key={row} className="board-row">
+                    {[row*3,row*3+1,row*3+2].map(i => <Square key={i} value={squares[i]}  clickSquare={() => click(i)}/>)}
+                </div>))
+            }
         </div>
         
     )

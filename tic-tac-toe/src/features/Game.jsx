@@ -16,17 +16,34 @@ const calculateWinner = (squares) => {
     for (let i=0; i<lines.length; i++) {
         const [a, b, c] = lines[i];
         if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
-            return squares[a];
+            return {type: squares[a], };
         }
     }
     return null;
 }
 
+const getCoordinate = (index) => {
+    const coordinates = [
+        {col: 1, row: 1},
+        {col: 2, row: 1},
+        {col: 3, row: 1},
+        {col: 1, row: 2},
+        {col: 2, row: 2},
+        {col: 3, row: 2},
+        {col: 1, row: 3},
+        {col: 2, row: 3},
+        {col: 3, row: 3}
+    ];
+
+    return coordinates[index];
+}
+
 const Game = () => {
-    const initialHistory = [{squares: Array(9).fill(null), x: 0, y: 0}];
+    const initialHistory = [{squares: Array(9).fill(null), col: 0, row: 0}];
     const [history, setHistory] = useState(initialHistory);
     const [xIsNext, setXIsNext] = useState(true);
     const [stepNumber, setStepNumber] = useState(0);
+    const [isASC, setIsASC] = useState(true);
 
     const current = history[stepNumber];
     const winner = calculateWinner(current.squares);
@@ -43,10 +60,10 @@ const Game = () => {
     }
 
     const moves = history.map((step, move) => {
-        const desc = move ? 'Go to step #' + move : 'Go to game start';
+        const desc = move ? 'Go to step #' + move + ` (col:${step.col}, row:${step.row}) ` : 'Go to game start';
         return (
             <li key={move}>
-                <button  onClick={() => JumpTo(move)}>{desc}</button>
+                <button  onClick={() => JumpTo(move)} className={move === stepNumber ? 'selectedMove' : ''}>{desc}</button>
             </li>
         );
     })
@@ -65,9 +82,12 @@ const Game = () => {
             newSqures[i] = 'O';
             setXIsNext(true);
         }
-        setHistory(newHistory.concat([{squares: newSqures}]));
+        const currentCoord = getCoordinate(i);
+        setHistory(newHistory.concat([{squares: newSqures, col: currentCoord.col, row: currentCoord.row}]));
         setStepNumber(newHistory.length);
     }
+
+    
 
     return (
         <div className="game">
@@ -75,8 +95,9 @@ const Game = () => {
                 <Board squares={current.squares} click={handleClick} status={status}/>
             </div>
             <div className="game-info">
-                <div>{status}</div>
-                <div key={moves.length}>{moves}</div>
+                <div className="status">{status}</div>
+                <button onClick={() => setIsASC(!isASC)}>{isASC? 'ASC': 'DESC'}</button>
+                <ol>{moves}</ol>
             </div>
         </div>
     )
