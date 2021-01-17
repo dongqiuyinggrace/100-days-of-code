@@ -17,3 +17,15 @@
   **Today's progress**: Followed the instruction of official react website tutorial created the tic-tac-toe game. The basic part was finished.
   
   **Thoughts**: I need to pay more attention on how and when react component get updated, and the usage of flex in css. I also plan to add extension part to this game.
+  
+## Day3: January 14, 2021 (working on tic-tac-toe)
+  
+  **Today's progress**: Add three new features to the game(show coordinate of each step, bold the currently selected step and rewrite board to use loop to draw squares).
+  
+  **Thoughts**: Still confusing about the usage of useEffect, need research more about how and when UI update.
+  
+## Day4: January 17, 2021 (working on tic-tac-toe)
+  
+  **Today's progress**: And one new feature to the game(highlight the winner sqaures).
+  
+  **Thoughts**: Waste some time when get the index of the winner squares because of wrong usage of "in" operator in javascript(use "includes" to check if an array includes some element, while use "in" to check if an object has a particular key or property).
