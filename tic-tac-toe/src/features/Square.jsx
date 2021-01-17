@@ -1,8 +1,10 @@
 import React from 'react'
 
-const Square = ({value, clickSquare}) => {
+const Square = ({value, clickSquare, isWinner}) => {
+    
+    const squareStyle = "square" + (isWinner ? " winner" : "");
     return (
-        <button className="square" onClick={clickSquare}>
+        <button className={squareStyle} onClick={clickSquare}>
             {value}
         </button>
     )

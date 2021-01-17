@@ -16,10 +16,10 @@ const calculateWinner = (squares) => {
     for (let i=0; i<lines.length; i++) {
         const [a, b, c] = lines[i];
         if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
-            return {type: squares[a], };
+            return {type: squares[a], a: a, b: b, c: c};
         }
     }
-    return null;
+    return {type: null};
 }
 
 const getCoordinate = (index) => {
@@ -46,7 +46,7 @@ const Game = () => {
     const [isASC, setIsASC] = useState(true);
 
     const current = history[stepNumber];
-    const winner = calculateWinner(current.squares);
+    const {type: winner, a, b, c} = calculateWinner(current.squares);
     let status = null;
     if (winner) {
         status = 'Winner: ' + winner;
@@ -71,7 +71,8 @@ const Game = () => {
     const handleClick = (i) => {
         const newHistory = history.slice(0, stepNumber+1);
         const current = newHistory[newHistory.length-1];
-        if (calculateWinner(current.squares) || current.squares[i] !== null) {
+        const {type: winner} = calculateWinner(current.squares);
+        if (winner || current.squares[i] !== null) {
             return;
         }
         const newSqures = [...current.squares];
@@ -86,13 +87,12 @@ const Game = () => {
         setHistory(newHistory.concat([{squares: newSqures, col: currentCoord.col, row: currentCoord.row}]));
         setStepNumber(newHistory.length);
     }
-
-    
+    console.log(a, b, c);
 
     return (
         <div className="game">
             <div className="game-board">
-                <Board squares={current.squares} click={handleClick} status={status}/>
+                <Board squares={current.squares} click={handleClick} status={status} winnerIndexes={winner ? [a, b, c] : []}/>
             </div>
             <div className="game-info">
                 <div className="status">{status}</div>
