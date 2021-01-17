@@ -46,11 +46,17 @@ const Game = () => {
     const [isASC, setIsASC] = useState(true);
 
     const current = history[stepNumber];
+    const isAllSet = !current.squares.includes(null);
+    console.log(isAllSet);
     const {type: winner, a, b, c} = calculateWinner(current.squares);
     let status = null;
     if (winner) {
         status = 'Winner: ' + winner;
-    } else {
+    } 
+    else if(isAllSet && !winner){
+        status = "There is no winner. It's a draw";
+    }
+    else {
         status = 'Next Player: ' + (xIsNext ? 'X' : 'O');
     }
 
@@ -87,7 +93,6 @@ const Game = () => {
         setHistory(newHistory.concat([{squares: newSqures, col: currentCoord.col, row: currentCoord.row}]));
         setStepNumber(newHistory.length);
     }
-    console.log(a, b, c);
 
     return (
         <div className="game">
