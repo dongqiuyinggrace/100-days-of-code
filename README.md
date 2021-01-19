@@ -29,3 +29,9 @@
   **Today's progress**: And one new feature to the game(highlight the winner sqaures).
   
   **Thoughts**: Waste some time when get the index of the winner squares because of wrong usage of "in" operator in javascript(use "includes" to check if an array includes some element, while use "in" to check if an object has a particular key or property).
+
+## Day5: January 19, 2021 (working on Calendar)
+  
+  **Today's progress**: Finish UI in the Calendar board part.
+  
+  **Thoughts**: Took lots of time in figure out how to render the table of calendar. Read about moment would not have new version, so in the future I need to change moment to date-fns. 
