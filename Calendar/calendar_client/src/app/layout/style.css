@@ -4,14 +4,56 @@
 }
 
 .calendar-sidebar {
-    background-color: #3268a8;
+    background-color: #2a68c5;
+    
     height: 100vh;
-    width: 30%;
+    width: 20%;
+    margin-right: 10px;
+    flex-basis: 20%;
 }
 
 .calendar-board {
     background-color:#fff;
     height: 100vh;
     width: 100%;
+    flex-basis: 80%;
 }
+
+.empty_cell,
+.day,
+.week_days {
+    text-align: center;
+    padding: 0;
+}
+
+.day,
+.week_days {
+    font-size: 0.8em;
+}
+
+.day {
+    cursor: pointer;
+    line-height: 24px;
+    width: 80px;
+    height: 80px;
+}
+
+.empty_cell {
+    width: 80px;
+    height: 80px;
+}
+
+.calendar_head {
+    padding: 10px 20px;
+}
+
+.month,
+.year {
+    color: #2a68c5;
+    font-size: 1.5em;
+    margin-right: 10px;
+}
+
+
+
 

@@ -43,11 +43,9 @@ const Game = () => {
     const [history, setHistory] = useState(initialHistory);
     const [xIsNext, setXIsNext] = useState(true);
     const [stepNumber, setStepNumber] = useState(0);
-    const [isASC, setIsASC] = useState(true);
-
+    
     const current = history[stepNumber];
     const isAllSet = !current.squares.includes(null);
-    console.log(isAllSet);
     const {type: winner, a, b, c} = calculateWinner(current.squares);
     let status = null;
     if (winner) {
@@ -101,7 +99,6 @@ const Game = () => {
             </div>
             <div className="game-info">
                 <div className="status">{status}</div>
-                <button onClick={() => setIsASC(!isASC)}>{isASC? 'ASC': 'DESC'}</button>
                 <ol>{moves}</ol>
             </div>
         </div>

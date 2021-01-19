@@ -1,9 +1,11 @@
 import React from 'react'
 
-const CalendarHead = () => {
+const CalendarHead = ({year, month}) => {
     return (
-        <div>
-            
+        <div className="calendar_head">
+            <button></button>
+            <span className="month">{month}</span>
+            <span className="year">{year}</span>
         </div>
     )
 }

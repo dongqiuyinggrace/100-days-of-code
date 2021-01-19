@@ -1,8 +1,6 @@
 import React from 'react'
 import Square from './Square';
 
-
-
 const Board = ({squares, click, winnerIndexes}) => {
     return (
         <div id="board">
@@ -19,7 +17,6 @@ const Board = ({squares, click, winnerIndexes}) => {
                 </div>))
             }
         </div>
-        
     )
 }
 

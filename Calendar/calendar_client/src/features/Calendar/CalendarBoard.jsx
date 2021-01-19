@@ -1,22 +1,70 @@
 import React from 'react';
 import moment from 'moment';
+import CalendarHead from './CalendarHead';
 
 const weekdays = moment.weekdays();
-weekdays.push(weekdays.shift());
-console.log(weekdays)
+//weekdays.push(weekdays.shift());
 
 const CalendarBoard = () => {
+    const currentMonth = moment().format('MMMM');
+    const currentYear = moment().year();
+    const currentDate = moment().date();
+    const firstWeekDayOfMonth = moment().startOf('month').day();
+    const daysNumInMonth = moment().daysInMonth();
 
+    const blanks = [];
+    for (let i=0; i<firstWeekDayOfMonth; i++) {
+        blanks.push(<td key={i*80} className="empty_cell">{''}</td>);
+    }
+
+    const daysInMonth = [];
+    for (let d=1; d<=daysNumInMonth; d++) {
+        let classes = "";
+        if (d === currentDate) {
+            classes = "day current_day";
+        } else {
+            classes = "day"
+        }
+        daysInMonth.push(<td key={d} className={classes} style={{height: '100px'}}>{d}</td>)
+    }
+
+    const totalSlots = [...blanks, ...daysInMonth];
+    let cells = [];
+    let rows = [];
+    totalSlots.forEach((cell, index) => {
+        if (index % 7 !== 0) {
+            cells.push(cell);
+        } else {
+            let insertRow = [...cells];
+            rows.push(insertRow);
+            cells = [];
+            cells.push(cell);
+        }
+
+        if (index === totalSlots.length - 1) {
+            let insertRow = [...cells];
+            rows.push(insertRow);
+        }
+    })
+
+    const renderRows = rows.map((row, index) => <tr key={index * 100}>{row}</tr>)
+    
     return (
         <div className="calendar-board">
+            <CalendarHead year={currentYear} month={currentMonth} />
             <table className="table">
                 <thead>
                     <tr>
-                        {weekdays.map(weekday => <td>{weekday}</td>)}
+                        {weekdays.map(weekday => <td key={weekday} className="week_days" style={{padding: '20px'}}>{weekday}</td>)}
                     </tr>
                 </thead>
+                <tbody>
+                    {renderRows}
+                </tbody>
             </table>
+            
         </div>
+
     )
 }
 
