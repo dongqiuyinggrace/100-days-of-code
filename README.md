@@ -35,3 +35,9 @@
   **Today's progress**: Finish UI in the Calendar board part.
   
   **Thoughts**: Took lots of time in figure out how to render the table of calendar. Read about moment would not have new version, so in the future I need to change moment to date-fns. 
+
+## Day6: January 20, 2021 (working on Calendar)
+  
+  **Today's progress**: Add UI elements to Sidebar and some stylings to calendar header and current day cell.
+  
+  **Thoughts**: While using new version of font awesome, install @fortawesome/fontawesome-free, but some icons cannot be used in free version. 
