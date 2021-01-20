@@ -4,14 +4,7 @@
     flex-direction: row;
 }
 
-.calendar-sidebar {
-    background-color: #2a68c5;
-    
-    height: 100vh;
-    width: 20%;
-    margin-right: 10px;
-    flex-basis: 20%;
-}
+/******Calendar-board******************/
 
 .calendar-board {
     background-color:#fff;
@@ -90,3 +83,52 @@ td.current_day {
     padding-top: 0;
 }
 
+/******Calendar-sidebar******************/
+.calendar-sidebar {
+    background-color: #2a68c5;
+    padding-top: 10px;
+    height: 100vh;
+    width: 20%;
+    margin-right: 10px;
+    flex-basis: 20%;
+}
+
+.calendar-sidebar ul {
+    list-style: none;
+    padding-left: 8px;
+    padding-top: 30px;
+}
+
+.calendar-sidebar ul li {
+    margin-bottom: 8px;
+}
+
+.calendar-sidebar .toggle, .add-event {
+    background-color: #2a68c5;
+    margin-right: 8px;
+    border: none;
+    color: rgb(252, 248, 248);
+    opacity: 0.9;
+    transition: all .5s;
+}
+
+.calendar-sidebar .add-event .fa-plus {
+    margin-right: 8px;
+}
+
+.calendar-sidebar .toggle:focus, .add-event:focus {
+    outline: none;
+}
+
+.calendar-sidebar .toggle:hover, .add-event:hover {
+    background-color: rgba(70, 123, 202, 0.8);
+    opacity: 1;
+}
+
+.calendar-sidebar .brand {
+    color: rgb(252, 248, 248);
+}
+
+.calendar-sidebar .fa-bars, .fa-plus {
+    color: rgb(252, 248, 248);
+}
