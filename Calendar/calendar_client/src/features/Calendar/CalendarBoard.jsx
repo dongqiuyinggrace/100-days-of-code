@@ -3,12 +3,12 @@ import moment from 'moment';
 import CalendarHead from './CalendarHead';
 
 const weekdays = moment.weekdays();
-//weekdays.push(weekdays.shift());
 
 const CalendarBoard = () => {
     const currentMonth = moment().format('MMMM');
     const currentYear = moment().year();
     const currentDate = moment().date();
+    console.log(currentDate);
     const firstWeekDayOfMonth = moment().startOf('month').day();
     const daysNumInMonth = moment().daysInMonth();
 
@@ -25,7 +25,11 @@ const CalendarBoard = () => {
         } else {
             classes = "day"
         }
-        daysInMonth.push(<td key={d} className={classes} style={{height: '100px'}}>{d}</td>)
+        daysInMonth.push(
+            <td key={d} className={classes} style={{padding: '1px'}} >
+                {d === currentDate && <div><hr /></div>}
+                {d}
+            </td>)
     }
 
     const totalSlots = [...blanks, ...daysInMonth];
@@ -55,7 +59,10 @@ const CalendarBoard = () => {
             <table className="table">
                 <thead>
                     <tr>
-                        {weekdays.map(weekday => <td key={weekday} className="week_days" style={{padding: '20px'}}>{weekday}</td>)}
+                        {weekdays.map(weekday => 
+                            <td key={weekday} className="week_days" style={{padding: '10px 20px', borderTop: 'none'}}>
+                                {weekday}
+                            </td>)}
                     </tr>
                 </thead>
                 <tbody>
