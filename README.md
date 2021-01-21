@@ -41,3 +41,9 @@
   **Today's progress**: Add UI elements to Sidebar and some stylings to calendar header and current day cell.
   
   **Thoughts**: While using new version of font awesome, install @fortawesome/fontawesome-free, but some icons cannot be used in free version. 
+
+## Day7: January 21, 2021 (working on Calendar)
+  
+  **Today's progress**: Add a Event Form component used to add events for a particular day, and apply Formik library to manipulate form.
+  
+  **Thoughts**: Need to learn more about Formik Library. 
