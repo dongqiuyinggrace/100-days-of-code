@@ -1,4 +1,5 @@
 import React from 'react'
+import EventForm from '../Event/EventForm'
 
 const CalendarSidebar = () => {
     return (
@@ -11,9 +12,12 @@ const CalendarSidebar = () => {
                         <i className="fas fa-plus"></i>
                         <span>New Event</span>
                     </button>
-                    
                 </li>
             </ul>
+            <div className="container">
+                <EventForm />
+            </div>
+
         </div>
     )
 }
