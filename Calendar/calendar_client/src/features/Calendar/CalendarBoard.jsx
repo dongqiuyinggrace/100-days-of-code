@@ -8,7 +8,6 @@ const CalendarBoard = () => {
     const currentMonth = moment().format('MMMM');
     const currentYear = moment().year();
     const currentDate = moment().date();
-    console.log(currentDate);
     const firstWeekDayOfMonth = moment().startOf('month').day();
     const daysNumInMonth = moment().daysInMonth();
 
