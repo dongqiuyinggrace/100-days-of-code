@@ -47,3 +47,9 @@
   **Today's progress**: Add a Event Form component used to add events for a particular day, and apply Formik library to manipulate form.
   
   **Thoughts**: Need to learn more about Formik Library. 
+
+## Day8: January 22, 2021 (working on Calendar)
+  
+  **Today's progress**: Create Custom TextInput component with Fomik useField and add Validation with Yup.
+  
+  **Thoughts**: Failed to use Field component with custom input component when trying to use meta error and touched property in custom input component. However when using useField, it works. 
