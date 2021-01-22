@@ -1,6 +1,7 @@
 import React from 'react'
 import TextInput from './../../app/common/form/TextInput';
-import {Formik} from 'formik';
+import {Form, Formik} from 'formik';
+import * as Yup from 'yup';
 
 const EventForm = () => {
     const initialValues = {
@@ -11,27 +12,44 @@ const EventForm = () => {
         description: ""
     }
 
-    const handleSubmit= (e, values) => {
+    const handleSubmit = (values) => {
         console.log(values);
     }
+
+    const validationSchema = Yup.object().shape({
+        eventName: Yup.string()
+                .min(2, 'too short!')
+                .max(50, 'too long!')
+                .required('Required!'),
+        venue: Yup.string()
+                .min(2, 'too short!')
+                .max(50, 'too long!')
+                .required('Required!'),
+        start: Yup.string()
+                .required('Required!'),
+        end: Yup.string()
+                .required('Required!'),
+        description: Yup.string()
+    })
 
     return (
         <Formik 
             initialValues={initialValues}
-            onsubmit={handleSubmit}
+            validationSchema={validationSchema}
+            onSubmit={handleSubmit}
         >
-        {({values, handleSubmit, handleChange, isSubmitting}) => (
-            <form onsubmit={handleSubmit}>
-                <h3>Detailed Information</h3>
-                <TextInput type="text" name="eventName" value={values.eventName} placeholder="Event Name" onChange={handleChange} />
-                <TextInput type="text" name="venue" value={values.venue} placeholder="Venue" onChange={handleChange} />
-                <TextInput type="text" name="start" value={values.start} placeholder="Start Time" onChange={handleChange}/>
-                <TextInput type="text" name="end" value={values.end} placeholder="End Time" onChange={handleChange}/>
-                <TextInput type="text" name="description" value={values.description} placeholder="Description" onChange={handleChange}/>
+        {({values, errors, touched, handleSubmit, handleChange, isSubmitting}) => (
+            <Form>
+                <h4>Detailed Information</h4>
+                <TextInput type="text" name="eventName" placeholder="Event Name" />
+                <TextInput type="text" name="venue" placeholder="Venue" />
+                <TextInput type="text" name="start" placeholder="Start Time" />
+                <TextInput type="text" name="end" placeholder="End Time" />
+                <TextInput type="text" name="description" placeholder="Description" />
                 <div className="form-group">
                     <input type="submit" disabled={isSubmitting} className="form-control" value="Save"/>
                 </div>
-            </form>
+            </Form>
         )}
         </Formik>
         

@@ -1,9 +1,15 @@
+import { useField } from 'formik'
 import React from 'react'
 
-const TextInput = ({type, name, value, placeholder, onChange}) => {
+const TextInput = ({label, ...props}) => {
+    const [field, meta] = useField(props);
     return (
         <div className="form-group">
-            <input type={type} name={name} value={value} className="form-control" placeholder={placeholder} onChange={onChange}/>
+            <label>{label}</label>
+            <input className="form-control" {...field} {...props} />
+            {meta.touched && meta.error && (
+                   <div className="error">{meta.error}</div>
+            )}
         </div>
     )
 }
