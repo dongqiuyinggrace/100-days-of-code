@@ -132,3 +132,53 @@ td.current_day {
 .calendar-sidebar .fa-bars, .fa-plus {
     color: rgb(252, 248, 248);
 }
+
+/******Event******************/
+.event {
+    display: flex;
+    flex-direction: row;
+}
+
+/******Event Form******************/
+.event-form {
+    margin-top: 10px;
+    flex-basis: 95%;
+    height: 100vh;
+}
+
+.event-form h4 {
+    margin-bottom: -10px;
+}
+
+/******Event-sidebar******************/
+.event-sidebar {
+    background-color: #2a68c5;
+    flex-basis: 5%;
+    height: 100vh;
+}
+
+.event-sidebar .btn {
+    background-color: #2a68c5;
+    margin-right: 8px;
+    margin-top: 10px;
+    border: none;
+    color: rgb(252, 248, 248);
+    opacity: 0.9;
+    transition: all .5s;
+}
+
+.event-sidebar .btn:focus {
+    outline: none;
+}
+
+.event-sidebar .btn:hover {
+    background-color: rgba(70, 123, 202, 0.8);
+    opacity: 1;
+}
+
+.event-form-head {
+    margin-bottom: 20px;
+}
+.event-form-head button {
+    border: none;
+}
