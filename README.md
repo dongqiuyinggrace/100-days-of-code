@@ -53,3 +53,9 @@
   **Today's progress**: Create Custom TextInput component with Fomik useField and add Validation with Yup.
   
   **Thoughts**: Failed to use Field component with custom input component when trying to use meta error and touched property in custom input component. However when using useField, it works. 
+
+## Day9: January 23, 2021 (working on Calendar)
+  
+  **Today's progress**: Add Router to switch between calendar and event form.
+  
+  **Thoughts**: Need to polish event form. 
