@@ -40,7 +40,7 @@ const EventForm = () => {
         onSubmit={handleSubmit}
       >
         {({ isValid, dirty, isSubmitting }) => (
-          <Form>
+          <Form className="form">
             <h4>Detailed Information</h4>
             <TextInput type='text' name='eventName' placeholder='Event Name' />
             <TextInput type='text' name='venue' placeholder='Venue' />

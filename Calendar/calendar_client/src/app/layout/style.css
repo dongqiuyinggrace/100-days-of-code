@@ -176,9 +176,37 @@ td.current_day {
     opacity: 1;
 }
 
+
+/******Event Form******************/
+.event-form .form {
+    width: 70%;
+}
+
 .event-form-head {
     margin-bottom: 20px;
+    margin-top: 30px;
 }
+
+.event-form-head .nav {
+    background-color: rgb(240,240,240);
+    width: 100%;
+    height: 40px;
+}
+
+.event-form-head .nav div.vertical-line{
+    margin: auto 0;
+    background-color: rgb(190,190,190);
+    width: 1.5px;
+    height: 80%; 
+}
+
 .event-form-head button {
     border: none;
+    
+}
+.event-form-head button:hover {
+    background-color: rgb(220,220,220);
+}
+.event-form-head button:focus {
+    outline: none;
 }
